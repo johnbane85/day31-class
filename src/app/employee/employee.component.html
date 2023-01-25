@@ -1,0 +1,79 @@
+<p>employee works!</p>
+
+<h1 *ngIf="visible">{{ title }}</h1>
+
+<input type="radio" name="topgun" (click)="onChange(true)" />True
+<input type="radio" name="topgun" (click)="onChange(false)" />False
+
+<div *ngIf="IsVisible; then thenBlock; else elseBlock"></div>
+
+<ng-template #thenBlock><p>show the thenBlock</p></ng-template>
+
+<ng-template #elseBlock><p>show the elseBlock</p></ng-template>
+
+<!-- <p *ngIf="IsVisible">
+  Lorem ipsum dolor sit amet consectetur adipisicing elit. Excepturi maxime
+  libero odio eum corporis ex dolorem nesciunt doloremque debitis adipisci quo a
+  quibusdam eveniet aspernatur, nostrum numquam nulla ducimus quasi?
+</p>
+
+<p *ngIf="!IsVisible">
+  Lorem ipsum dolor sit amet consectetur adipisicing elit. Repudiandae, sit quos
+  magni accusantium cupiditate eius quis laboriosam officia? Molestias
+  dignissimos dolores quo beatae pariatur, nisi eligendi expedita hic cum quas.
+</p> -->
+
+<!-- <p hidden>
+  Lorem ipsum dolor sit, amet consectetur adipisicing elit. Qui quasi molestias
+  voluptas ex consequatur quidem, dolores quo amet sunt suscipit perferendis
+  commodi doloremque saepe iste eveniet? Sapiente dolore accusamus libero?
+</p> -->
+
+<select (change)="SetColor($event)">
+  <option value="">---Select color---</option>
+  <option value="R">Red</option>
+  <option value="O">Orange</option>
+  <option value="Y">Yellow</option>
+  <option value="G">Green</option>
+  <option value="B">Blue</option>
+  <option value="V">Violet</option>
+</select>
+
+<div [ngSwitch]="color">
+  <div *ngSwitchCase="'R'">
+    <p style="color: red">switch statement</p>
+  </div>
+  <div *ngSwitchCase="'O'">
+    <p style="color: orange">switch statement</p>
+  </div>
+  <div *ngSwitchCase="'Y'">
+    <p style="color: yellow">switch statement</p>
+  </div>
+  <div *ngSwitchCase="'G'">
+    <p style="color: green">switch statement</p>
+  </div>
+  <div *ngSwitchCase="'B'">
+    <p style="color: blue">switch statement</p>
+  </div>
+  <div *ngSwitchCase="'V'">
+    <p style="color: violet">switch statement</p>
+  </div>
+  <div *ngSwitchDefault>
+    <p style="color: black">switch statement</p>
+  </div>
+</div>
+
+<table border="1">
+  <thead>
+    <th>Name</th>
+    <th>Age</th>
+    <th>Gender</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let employee of Employees">
+      <td>{{ employee.Name }}</td>
+      <td>{{ employee.Age }}</td>
+      <td>{{ employee.Gender }}</td>
+    </tr>
+  </tbody>
+</table>
