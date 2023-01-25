@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Employee } from '../models/models';
 
 @Component({
   selector: 'app-employee',
@@ -20,7 +21,11 @@ export class EmployeeComponent {
 
   IsVisible = true;
 
-  Employees: any[] = [];
+  Employees: Employee[] = [];
+
+  myName: string = 'COMWorks';
+
+  newServerName: string = 'myServer';
 
   constructor() {
     this.Employees = [
@@ -78,5 +83,9 @@ export class EmployeeComponent {
     } else {
       return 'color3';
     }
+  }
+
+  showSomeData() {
+    alert('Hello World!!!');
   }
 }
