@@ -30,6 +30,18 @@ export class EmployeeComponent {
     ];
   }
 
+  GetMoreEmployee() {
+    this.Employees = [
+      { Name: 'Ah Kow', Age: 21, Gender: 'M' },
+      { Name: 'Ah Meow', Age: 22, Gender: 'F' },
+      { Name: 'Caterpillar', Age: 25, Gender: 'M' },
+      { Name: 'John', Age: 18, Gender: 'M' },
+      { Name: 'Joel', Age: 10, Gender: 'M' },
+      { Name: 'Cindy', Age: 34, Gender: 'F' },
+      { Name: 'Linda', Age: 14, Gender: 'F' },
+    ];
+  }
+
   ShowContent(val1: number, val2: number): boolean {
     return val1 < val2 ? true : false;
   }
@@ -42,5 +54,29 @@ export class EmployeeComponent {
     console.log(event);
     // console.info('event: ', event);
     this.color = event.target.value;
+  }
+
+  TrackByEmployeeName(index: number, employee: any): string {
+    return employee.Name;
+  }
+
+  CheckAge(Age: number) {
+    let val = Age < 18 ? 'Under 18' : 'Above 18';
+
+    switch (val) {
+      case 'Under 18':
+        return 'red';
+      case 'Above 18':
+        return 'green';
+    }
+    return '';
+  }
+
+  getCss(isEven: boolean) {
+    if (isEven) {
+      return 'color1';
+    } else {
+      return 'color3';
+    }
   }
 }

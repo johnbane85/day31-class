@@ -63,17 +63,47 @@
   </div>
 </div>
 
+<!-- <table [ngStyle]="{ color: number1 > number2 ? 'red' : 'green' }" border="1"> -->
 <table border="1">
   <thead>
+    <th>S/No</th>
     <th>Name</th>
     <th>Age</th>
     <th>Gender</th>
+    <th>First Rec</th>
+    <th>Last Rec</th>
   </thead>
   <tbody>
-    <tr *ngFor="let employee of Employees">
-      <td>{{ employee.Name }}</td>
-      <td>{{ employee.Age }}</td>
-      <td>{{ employee.Gender }}</td>
+    <tr
+      *ngFor="
+        let employee of Employees;
+        let i = index;
+        first as isFirst;
+        last as isLast;
+        trackBy: TrackByEmployeeName;
+        even as isEven;
+        odd as isOdd
+      "
+      [ngStyle]="{ color: isEven ? 'Orange' : 'Blue' }"
+    >
+      <td>{{ i + 1 }}</td>
+      <td>{{ employee.Name | uppercase }}</td>
+      <td [ngStyle]="{ color: CheckAge(employee.Age) }">{{ employee.Age }}</td>
+      <td [ngClass]="getCss(isEven)">{{ employee.Gender }}</td>
+      <td>{{ isFirst }}</td>
+      <td>{{ isLast }}</td>
     </tr>
   </tbody>
 </table>
+
+<br />
+<br />
+<button (click)="GetMoreEmployee()">Add more employees</button>
+
+<p [ngClass]="'color1'">
+  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+</p>
+
+<p [ngClass]="number1 > number2 ? 'color1' : 'color2'">
+  Aut nesciunt exercitationem sunt veniam?
+</p>
