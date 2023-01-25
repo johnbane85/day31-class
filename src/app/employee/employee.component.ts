@@ -10,7 +10,8 @@ export class EmployeeComponent {
   title = 'Employee page';
 
   // color: any;
-  color: string = '';
+  // color: string = '';
+  color: string | null = null;
 
   number1 = 12;
   number2 = 20;
